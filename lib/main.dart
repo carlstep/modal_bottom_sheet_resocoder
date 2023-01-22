@@ -25,7 +25,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String _selectedItem = '';
+  String _selectedItem = 'egypt';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,19 +33,21 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            ElevatedButton(
-              onPressed: () => _onButtonPressed(),
-              child: const Text('show'),
-            ),
             Text(
               _selectedItem,
               style: const TextStyle(
                 fontSize: 40,
               ),
             ),
-            CircleAvatar(
-              radius: 30,
-              backgroundImage: AssetImage('assets/flags/$_selectedItem.png'),
+            SizedBox(
+              height: 20,
+            ),
+            GestureDetector(
+              onTap: () => _onButtonPressed(),
+              child: CircleAvatar(
+                radius: 30,
+                backgroundImage: AssetImage('assets/flags/$_selectedItem.png'),
+              ),
             ),
           ],
         ),
